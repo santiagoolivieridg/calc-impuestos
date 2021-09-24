@@ -79,13 +79,11 @@
 
         methods: {
           calculateTip(bill) {
-            //AGREGAR UN IF PARA QUE NO SE MANDE SIN INFO
-            if (this.bill != 0 && this.bill != NaN) {
-              // divide entre las personas
+            if (this.bill != 0 && !isNaN(this.bill)) {
               // le saca el porcentaje
               const impuesto = (this.bill * 64) / 100;
               // Suma las dos cantidades y lo pone como total
-              const impuestoTotal = this.bill + impuesto;
+              const impuestoTotal = impuesto + this.bill;
 
               // le agrega toFixed
               this.impuesto = impuesto.toFixed(2);
